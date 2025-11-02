@@ -31,7 +31,7 @@
 | **Versioning** | Git/GitHub | Gestion de code |
 
 ### Architecture détaillée
-retail_analytics/docs/screenshots/architecture_analytics.png
+![image architecture](docs/screenshots/architecture_analytics.png)
  
 
 ### Vue d'ensemble
