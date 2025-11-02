@@ -1,0 +1,32 @@
+# dbt
+target/
+dbt_packages/
+logs/
+dbt_modules/
+
+# Credentials (IMPORTANT !)
+profiles.yml
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp

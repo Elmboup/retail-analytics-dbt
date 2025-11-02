@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: >
+      **Table de faits centrale** contenant toutes les transactions de vente.
+      
+      Cette table est matérialisée en mode incrémental pour optimiser les performances
+      et réduire les coûts Snowflake. Chaque ligne représente une commande avec ses
+      métriques financières et logistiques.
+      
+      **Cas d'usage :**
+      - Analyse des revenus (daily/monthly/yearly)
+      - Performance logistique (délais de livraison)
+      - Analyse géographique des ventes
+      
+    columns:
+      - name: order_id
+        description: "Identifiant unique de la commande (PK)"
+        
+      - name: customer_unique_id
+        description: "Identifiant unique du client (permet de tracker les achats répétés)"
+        
+      - name: total_amount
+        description: "Montant total de la commande (produits + livraison)"
+        
+      - name: delivery_days
+        description: "Nombre de jours entre l'achat et la livraison"
+        
+      - name: delivery_speed_category
+        description: "Catégorisation de la vitesse : Fast (<7j), Normal (7-14j), Slow (14-30j), Very Slow (>30j)"
+        
+      - name: is_high_value_order
+        description: "Flag : commande > 200 BRL"
+
+  - name: dim_customers
+    description: >
+      **Dimension clients enrichie** avec métriques lifetime et segmentation.
+      
+      Cette table agrège toutes les informations client avec leurs métriques
+      comportementales, permettant des analyses de cohortes et du ciblage marketing.
+      
+      **Segmentation :**
+      - VIP : 3+ commandes ET >1000 BRL de LTV
+      - Super Loyal : 3+ commandes
+      - High Value Repeat : 2 commandes ET >500 BRL
+      - Repeat : 2 commandes
+      - High Value One-time : 1 commande >300 BRL
+      - One-time : Autres
+      
+    columns:
+      - name: customer_id
+        description: "Identifiant unique par commande"
+        
+      - name: customer_unique_id
+        description: "Identifiant unique de la personne physique"
+        
+      - name: lifetime_value
+        description: "Valeur totale générée par le client sur toute sa durée de vie"
+        
+      - name: customer_segment
+        description: "Segment basé sur fréquence et valeur"
+        
+      - name: customer_status
+        description: "Statut basé sur récence : Active, Cooling, At Risk, Lost, One-time Buyer"
+        
+      - name: days_since_last_order_relative
+        description: "Jours depuis la dernière commande (relatif à la fin du dataset, pas aujourd'hui)"
+
+  - name: customer_360
+    description: >
+      **Vue 360° des clients** consolidant toutes les informations pour l'action.
+      
+      Cette vue combine dim_customers avec les détails de la dernière commande
+      et ajoute des flags actionnables pour le marketing.
+      
+      **Utilisation :**
+      - Campagnes de réactivation ciblées
+      - Identification des clients VIP à risque
+      - Priorisation des actions commerciales
