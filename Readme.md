@@ -2,7 +2,7 @@
 
 > Plateforme d'analytics moderne construite avec dbt et Snowflake pour analyser 100K+ commandes e-commerce. Architecture medallion (bronze/silver/gold) avec analyses de cohortes, segmentation RFM, et insights business actionnables.
 
----
+
 
 ## Problématique Business
 
@@ -16,7 +16,7 @@
 
 **Objectif :** Construire un data warehouse moderne permettant des analyses avancées pour optimiser rétention, logistique et stratégie commerciale.
 
----
+
 
 ## Architecture
 
@@ -31,7 +31,7 @@
 | **Versioning** | Git/GitHub | Gestion de code |
 
 ### Architecture détaillée
-![architecture image](retail_analytics/architecture_analytics.png)
+retail_analytics/docs/screenshots/architecture_analytics.png
  
 
 ### Vue d'ensemble
@@ -43,7 +43,6 @@ L'architecture suit le pattern **Medallion** (Bronze/Silver/Gold) avec :
 - **Gold** : Tables analytiques prêtes pour le BI
 ```
 
----
 
 ##  Modèle de Données
 
@@ -83,7 +82,7 @@ Table agrégée avec métriques lifetime et segmentation.
 -  **High Value One-time** : 1 commande >300 BRL
 -  **One-time** : Autres (96.5% du total)
 
----
+
 
 ##  Analyses Business Implémentées
 
@@ -134,7 +133,7 @@ Vue des clients à cibler par campagne avec priorisation.
 2. VIP/Loyal en risque de churn
 3. Repeat actifs à upsell
 
----
+
 
 ##  Métriques Clés du Projet
 
@@ -190,7 +189,6 @@ dbt docs generate
 dbt docs serve  # Ouvre navigateur sur localhost:8080
 ```
 
----
 
 ##  Structure du Projet
 
@@ -223,7 +221,6 @@ retail_analytics/
 └── README.md
 ```
 
----
 
 ##  Insights Business Actionnables
 
@@ -255,7 +252,6 @@ retail_analytics/
 - **Action :** Campagne email ciblée 30-60j post-achat
 - **ROI estimé :** 10% conversion → +YK CA
 
----
 
 ##  Tests & Qualité des Données
 
@@ -280,7 +276,6 @@ dbt test
 dbt test --select fct_sales
 ```
 
----
 
 ##  Documentation
 
@@ -292,7 +287,6 @@ La documentation interactive est générée automatiquement par dbt et inclut :
 
 **Accès :** `dbt docs serve` puis http://localhost:8080
 
----
 
 ##  Roadmap / Prochaines Étapes
 
@@ -316,7 +310,6 @@ La documentation interactive est générée automatiquement par dbt et inclut :
 - [ ] SLA freshness des données sources
 - [ ] Monitoring de dérive de données (drift detection)
 
----
 
 ##  Compétences Démontrées
 
@@ -340,7 +333,6 @@ La documentation interactive est générée automatiquement par dbt et inclut :
 - Git/GitHub (version control, collaboration)
 - Python (data generation, scripting)
 
----
 
 ##  Contact
 
@@ -352,7 +344,7 @@ La documentation interactive est générée automatiquement par dbt et inclut :
 
 Ce projet utilise des données publiques anonymisées de [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) disponibles sur Kaggle sous licence CC BY-NC-SA 4.0.
 
----
+
 
 
 
