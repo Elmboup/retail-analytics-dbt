@@ -105,6 +105,7 @@ Vue consolidée pour actions marketing ciblées.
 - Campagnes de réactivation (High Value One-time)
 - Prévention churn (VIP At Risk)
 - Programmes de fidélité
+![alt text](docs/screenshots/customer_360_lineage.png)
 
 ### 3. Performance Produits (ABC Analysis)
 Classification des produits par contribution au CA.
